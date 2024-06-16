@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   },
   description:
     "Welcome to My Blog. Discover articles on various topics and insights.",
+  other:{
+    "google-site-verification": "S_VGOkxk99-pqguiiziYxKVAuzl7-6KHcmgvw4LwnVM"
+  }
 }
 
 export default function RootLayout({
