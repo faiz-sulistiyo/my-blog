@@ -10,7 +10,7 @@ export const ConfirmDeleteModal: React.FC<IConfirmDeleteModalProps> = ({
 }) => {
   return (
     <div className="fixed top-0 left-0 z-50 flex items-center justify-center h-screen w-full bg-black bg-opacity-70">
-      <div className="dark:bg-black bg-white border rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative">
+      <div className="bg-black border rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative">
         <div className="md:flex items-center">
           <div className="mt-4 md:mt-0 text-center md:text-left">
             <p className="font-bold">Delete your account</p>

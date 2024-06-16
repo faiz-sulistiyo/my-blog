@@ -63,7 +63,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
 
   return (
     <div className="fixed top-0 left-0 z-50 flex items-center justify-center h-screen w-full bg-black bg-opacity-70">
-      <form onSubmit={handleSubmitUser} className="flex flex-col gap-4 dark:bg-black bg-white p-5 rounded-md border">
+      <form onSubmit={handleSubmitUser} className="flex flex-col gap-4 bg-black p-5 rounded-md border">
         <h1 className="text-xl font-bold text-center">{title}</h1>
         <InputText
           readOnly={readonly}

@@ -41,7 +41,7 @@ export const FloatingButton: React.FC = () => {
         onClick={handleClickAdd}
         type="button"
         aria-label="create-user"
-        className="h-12 w-12 fixed md:bottom-10 bottom-5 right-5 md:right-24 flex items-center justify-center dark:bg-white bg-black text-white dark:text-black border rounded-full z-30"
+        className="h-12 w-12 fixed md:bottom-10 bottom-5 right-5 md:right-24 flex items-center justify-center bg-white text-black border rounded-full z-30"
       >
         <FaPlus size={18} />
       </button>
