@@ -8,7 +8,7 @@ export const InputText: React.FC<IInputTextProps> = ({label, ...props}) => {
   return (
     <div className="flex flex-col gap-2">
       <label
-        htmlFor={props.name}
+        htmlFor={props.id}
         className="block w-full pb-1 text-sm transition-all duration-200 ease-in-out group-focus-within:text-blue-400"
       >
         {label}

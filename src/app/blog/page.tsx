@@ -1,5 +1,4 @@
-import {ArticleCard} from "@/components/common"
-import {Pagination} from "@/components/common/Pagination"
+import {ArticleCard, Pagination} from "@/components/common"
 import {fetchPosts} from "@/services/blog"
 import {checkDevice} from "@/utils/checkDevice"
 import {headers} from "next/headers"
@@ -12,12 +11,16 @@ export default async function BlogListPage({
 }) {
   const reqHeader = headers()
   const isMobile = checkDevice(reqHeader)
-  const page = searchParams?.page || 1
+  const page = Number(searchParams?.page || 1)
+  const perPage = isMobile ? 3 : 9
 
   const data = await fetchPosts({
-    page: Number(page),
-    per_page: isMobile ? 3 : 9,
+    page,
+    per_page: perPage,
   })
+
+  const isDisableNextPage = data.length < perPage;
+  const isDisablePrevPage = page === 1;
 
   return (
     <section className="flex flex-col justify-center md:gap-10 gap-5">
@@ -37,7 +40,7 @@ export default async function BlogListPage({
           )
         })}
       </div>
-      <Pagination page={Number(page)} />
+      <Pagination page={page} disableNextPage={isDisableNextPage} disablePrevPage={isDisablePrevPage}/>
     </section>
   )
 }

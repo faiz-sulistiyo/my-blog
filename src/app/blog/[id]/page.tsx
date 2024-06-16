@@ -1,6 +1,6 @@
 import {CommentForm} from "@/components/section"
 import {fetchCommentsByPostId, fetchPostById} from "@/services/blog"
-import {Metadata, ResolvingMetadata} from "next"
+import {Metadata} from "next"
 import React from "react"
 
 interface IBlogDetailPageParams {

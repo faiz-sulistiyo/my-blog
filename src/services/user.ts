@@ -1,11 +1,22 @@
-import { IUser } from '@/types/user';
+import { IPagination } from '@/types/common';
+import { IUser, IUserPayload } from '@/types/user';
 import axiosInstance from '@/utils/axiosInstance';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_GO_REST_API;
 
-export const fetchUsers = async (): Promise<IUser[]> => {
+export const fetchUsers = async ({page,per_page,search,searchField}:IPagination): Promise<IUser[]> => {
     try {
-        const response = await axiosInstance.get(`${API_BASE_URL}/users`);
+        const response = await axiosInstance.get(`${API_BASE_URL}/users`,{
+            params:{
+                page,
+                per_page,
+                [searchField??""]: search,
+            },
+            headers:{
+                "Cache-Control":"no-store",
+                'Pragma': 'no-cache'
+            }
+        });
         return response.data;
     } catch (error) {
         console.error('Error fetching users:', error);
@@ -23,7 +34,7 @@ export const fetchUserById = async (id: string): Promise<IUser> => {
     }
 };
 
-export const createUser = async (user: Partial<IUser>): Promise<IUser> => {
+export const createUser = async (user: Partial<IUserPayload>): Promise<IUser> => {
     try {
         const response = await axiosInstance.post(`${API_BASE_URL}/users`, user);
         return response.data;
@@ -33,7 +44,7 @@ export const createUser = async (user: Partial<IUser>): Promise<IUser> => {
     }
 };
 
-export const updateUser = async (id: string, user: Partial<IUser>): Promise<IUser> => {
+export const updateUser = async (id: number, user: Partial<IUserPayload>): Promise<IUser> => {
     try {
         const response = await axiosInstance.put(`${API_BASE_URL}/users/${id}`, user);
         return response.data;
@@ -44,7 +55,7 @@ export const updateUser = async (id: string, user: Partial<IUser>): Promise<IUse
     }
 };
 
-export const deleteUser = async (id: string): Promise<void> => {
+export const deleteUser = async (id: number): Promise<void> => {
     try {
         await axiosInstance.delete(`${API_BASE_URL}/users/${id}`);
     } catch (error) {

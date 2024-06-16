@@ -6,7 +6,12 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_GO_REST_API;
 
 export const fetchPosts = async ({page,per_page}:IPagination): Promise<IPost[]> => {
     try {
-        const response = await axiosInstance.get(`${API_BASE_URL}/posts?page=${page}&per_page=${per_page}`);
+        const response = await axiosInstance.get(`${API_BASE_URL}/posts`,{
+            params:{
+                page,
+                per_page
+            },
+        });
         return response.data;
     } catch (error) {
         console.error('Error fetching posts:', error);

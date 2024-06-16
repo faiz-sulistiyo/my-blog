@@ -12,7 +12,7 @@ export const InputTextArea: React.FC<IInputTextAreaProps> = ({
   return (
     <div className="flex flex-col gap-2">
       <label
-        htmlFor={props.name}
+        htmlFor={props.id}
         className="block text-sm mb-1"
       >
         {label}

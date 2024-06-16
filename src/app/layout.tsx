@@ -3,7 +3,7 @@ import {Inter} from "next/font/google"
 import "./globals.css"
 import {Footer, Header} from "@/components/layout"
 
-const inter = Inter({subsets: ["latin"],display:"swap"})
+const inter = Inter({subsets: ["latin"],display:"fallback"})
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen sm:px-20 p-5">{children}</main>
+        <main className="min-h-[80vh] sm:px-20 p-5">{children}</main>
         <Footer />
       </body>
     </html>

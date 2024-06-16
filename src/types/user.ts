@@ -5,3 +5,11 @@ export interface IUser {
     gender: 'male' | 'female';
     status: 'active' | 'inactive';
 }
+
+export interface IUserPayload {
+    id?:number;
+    name: string;
+    gender: "male" | "female" | null;
+    email: string;
+    status: "active" | "inactive" | null;
+}
